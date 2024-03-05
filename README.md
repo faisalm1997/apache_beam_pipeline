@@ -15,8 +15,8 @@ pip install apache-beam
 1. Clone this repository to your local machine:
 
 ```bash
-git clone <repository_url>
-cd <repository_name>
+git clone git@github.com:faisalm1997/apache_beam_pipeline.git
+cd apache_beam_pipeline
 ```
 
 2. Execute the Apache Beam pipeline by running the `main.py` script:
