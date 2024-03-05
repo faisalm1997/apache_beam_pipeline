@@ -48,7 +48,7 @@ The `test_main.py` script contains unit tests for the Apache Beam pipeline. It u
 To run the tests, execute the following command:
 
 ```bash
-python test_main.py
+python3 test_main.py
 ```
 
 ## License
