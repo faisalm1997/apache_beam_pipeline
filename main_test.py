@@ -6,7 +6,10 @@ from apache_beam.testing.util import equal_to
 import main
 
 class TestCompositeTransform(unittest.TestCase):
+    """Test case for composite transform functionality."""
+
     def test_composite_transform(self):
+        """Test the composite transform with sample input data."""
         with TestPipeline() as pipe:
             # Generate some test input data
             input_data = [
@@ -20,15 +23,15 @@ class TestCompositeTransform(unittest.TestCase):
                 pipe
                 | beam.Create(input_data)
                 | main.FilterTransactions()
-                | 'ExtractDateAmount' >> beam.ParDo(main.extract_date_amount())
+                | 'ExtractDateAmount' >> beam.ParDo(main.ExtractDateAmountFn())
                 | 'GroupByDate' >> beam.GroupByKey()
                 | 'SumByDate' >> beam.ParDo(main.SumByDate())
             )
 
             # Define expected output
             expected_output = [
-                ('2017-03-18', 2102.22)
-                ('2017-08-31', 13700000023.08)
+                ('2017-03-18', 2102.22),
+                ('2017-08-31', 13700000023.08),
                 ('2018-02-27', 129.12)
             ]
 
